@@ -1,0 +1,21 @@
+{
+	"im0":{
+		"offset": 0,
+		"mult": 4194304,
+		"shift": 8
+	},
+	"im1":{
+		"offset": 0,
+		"mult": 8158205,
+		"shift": 8
+	},
+	"out":{
+		"offset": 0,
+		"mult": 9235375,
+		"shift": 7
+	},
+	"left_shift": 0,
+	"act_max": 127,
+	"act_min": -128,
+	"const": 0
+}

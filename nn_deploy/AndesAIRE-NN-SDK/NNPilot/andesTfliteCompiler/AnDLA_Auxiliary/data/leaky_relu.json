@@ -1,0 +1,18 @@
+{
+	"layer1":{
+		"comments":"activation",
+		"enable": true,
+		"func":"leaky_relu",
+        "act_mode":0,
+		"in_dim_x": 7,
+		"in_dim_y": 7,
+		"in_ch": 16,
+		"base":{
+			"ifmap0":3,
+			"act":4,
+			"ofmap":3
+		},
+		"act": "leaky_relu_table.bin",
+		"insts": "leaky_relu_insts.bin"
+	}
+}

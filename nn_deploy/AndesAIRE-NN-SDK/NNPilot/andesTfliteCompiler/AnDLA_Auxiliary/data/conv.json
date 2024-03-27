@@ -1,0 +1,29 @@
+{
+	"layer1":{
+		"comments":"convolution",
+		"enable": true,
+		"func":"conv",
+		"in_dim_x": 56,
+		"in_dim_y": 56,
+		"in_ch": 8,
+		"out_ch": 16,
+		"ker_x": 5,
+		"ker_y": 5,
+		"pad_x": 0,
+		"pad_y": 0,
+		"stride_x": 2,
+		"stride_y": 2,
+		"out_dim_x": 27,
+		"out_dim_y": 27,
+		"base":{
+			"ifmap":5,
+			"weight":6,
+			"bias":6,
+			"scale":6,
+			"ofmap":5
+		},
+		"weight": "conv_weight.bin",
+		"bias": "conv_bias.bin",
+		"insts": "conv_insts.bin"
+	}
+}

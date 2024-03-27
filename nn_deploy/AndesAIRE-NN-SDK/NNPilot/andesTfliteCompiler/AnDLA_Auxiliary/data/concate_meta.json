@@ -1,0 +1,23 @@
+{
+    "layer1": {
+        "comments": "concate x",
+        "func": "concate",
+        "base": {
+            "ifmap": 1,
+            "ofmap": 1
+        },
+        "axis": "x",
+        "insts": {
+            "name": "concate_x_insts.bin",
+            "size": 156
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 3136
+        },
+        "ofmap": {
+            "addr": "0xfe770",
+            "size": 6280
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+	"layer1":{
+		"comments":"activation",
+		"enable": true,
+		"func":"sigmoid",
+        "act_mode":3,
+		"in_dim_x": 56,
+		"in_dim_y": 56,
+		"in_ch": 2,
+		"base":{
+			"ifmap":2,
+			"coeff":1,
+			"ofmap":2
+		},
+		"coeff": "sigmoid_table.bin",
+		"insts": "sigmoid_insts.bin"
+	}
+}

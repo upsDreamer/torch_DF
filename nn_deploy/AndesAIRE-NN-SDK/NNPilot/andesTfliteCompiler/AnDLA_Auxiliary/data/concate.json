@@ -1,0 +1,73 @@
+{
+	"layer1":{
+		"comments":"concate x",
+		"enable": true,
+		"func": "concate",
+		"in_tensor_x": 8,
+		"in_tensor_y": 14,
+		"in_tensor_z": 14,
+		"in_tensor_w": 2,
+		"axis": "x",
+		"out_tensor": 16,
+		"out_offset": 8,
+		"base":{
+			"ifmap":1,
+			"ofmap":1
+		},
+		"insts": "concate_x_insts.bin"
+	},
+	
+	"layer2":{
+		"comments":"concate y",
+		"enable": false,
+		"func": "concate",
+		"in_tensor_x": 8,
+		"in_tensor_y": 14,
+		"in_tensor_z": 14,
+		"in_tensor_w": 2,
+		"axis": "y",
+		"out_tensor": 16,
+		"out_offset": 8,
+		"base":{
+			"ifmap":2,
+			"ofmap":2
+		},
+		"insts": "concate_y_insts.bin"
+	},
+	
+	"layer3":{
+		"comments":"concate z",
+		"enable": false,
+		"func": "concate",
+		"in_tensor_x": 8,
+		"in_tensor_y": 14,
+		"in_tensor_z": 14,
+		"in_tensor_w": 2,
+		"axis": "z",
+		"out_tensor": 16,
+		"out_offset": 8,
+		"base":{
+			"ifmap":3,
+			"ofmap":3
+		},
+		"insts": "concate_z_insts.bin"
+	},
+	
+	"layer4":{
+		"comments":"concate w",
+		"enable": false,
+		"func": "concate",
+		"in_tensor_x": 8,
+		"in_tensor_y": 14,
+		"in_tensor_z": 14,
+		"in_tensor_w": 2,
+		"axis": "w",
+		"out_tensor": 4,
+		"out_offset": 8,
+		"base":{
+			"ifmap":1,
+			"ofmap":1
+		},
+		"insts": "concate_w_insts.bin"
+	}
+}

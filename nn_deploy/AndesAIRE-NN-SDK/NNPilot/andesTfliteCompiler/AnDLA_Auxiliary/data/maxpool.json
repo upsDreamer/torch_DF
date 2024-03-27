@@ -1,0 +1,25 @@
+{
+	"pooling":{
+		"comments":"Do max pooling operation",
+		"enable": true,
+		"func":"maxpool",
+		"in_dim_x": 112,
+		"in_dim_y": 112,
+		"in_ch": 64,
+		"ker_x": 3,
+		"ker_y": 3,
+		"pad_x": 1,
+		"pad_y": 1,
+		"stride_x": 2,
+		"stride_y": 2,
+		"out_dim_x": 56,
+		"out_dim_y": 56,
+		"base":{
+			"ifmap":2,
+			"coeff":1,
+			"ofmap":2
+		},
+		"coeff": "maxpool_coeff.bin",
+		"insts": "maxpool_insts.bin"
+	}
+}

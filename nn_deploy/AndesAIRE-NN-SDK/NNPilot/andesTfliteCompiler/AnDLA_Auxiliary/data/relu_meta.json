@@ -1,0 +1,24 @@
+{
+    "layer1": {
+        "comments": "activation",
+        "func": "relu",
+        "base": {
+            "ifmap0": 2,
+            "act": 1,
+            "ofmap": 2
+        },
+        "act": {
+            "name": "relu_table.bin",
+            "addr": "0x0",
+            "size": 256
+        },
+        "insts": {
+            "name": "relu_insts.bin",
+            "size": 348
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 200
+        }
+    }
+}

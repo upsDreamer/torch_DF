@@ -1,0 +1,63 @@
+{
+	"conv_0":{
+		"comments":"Do pointwise convoultion operation",
+		"func":"pointwise_convolution",
+		"enable": true,
+		"in_dim_x": 13,
+		"in_dim_y": 13,
+		"in_ch": 1024,
+		"out_ch": 128
+	},
+	
+	"conv_1":{
+		"comments":"Do convoultion operation",
+		"func":"convolution",
+		"enable": false,
+		"in_dim_x": 13,
+		"in_dim_y": 13,
+		"in_ch": {
+			"start": 8,
+			"stop": 1024,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 16,
+			"stop": 1024,
+			"step": 2,
+			"mode": "mul"
+		},
+		"ker_x": 3,
+		"ker_y": 3,
+		"pad_x": 1,
+		"pad_y": 1,
+		"stride_x": 1,
+		"stride_y": 1
+	},
+	
+	"conv_1":{
+		"comments":"Do convoultion operation",
+		"func":"convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 13,
+			"stop": 416,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 13,
+			"stop": 416,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch": 16,
+		"out_ch": 32,
+		"ker_x": 3,
+		"ker_y": 3,
+		"pad_x": 1,
+		"pad_y": 1,
+		"stride_x": 1,
+		"stride_y": 1
+	}
+}

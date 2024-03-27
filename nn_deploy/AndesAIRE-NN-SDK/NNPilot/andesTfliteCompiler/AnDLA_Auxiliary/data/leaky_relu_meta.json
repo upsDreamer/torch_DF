@@ -1,0 +1,24 @@
+{
+    "layer1": {
+        "comments": "activation",
+        "func": "leaky_relu",
+        "base": {
+            "ifmap0": 3,
+            "act": 4,
+            "ofmap": 3
+        },
+        "act": {
+            "name": "leaky_relu_table.bin",
+            "addr": "0x0",
+            "size": 256
+        },
+        "insts": {
+            "name": "leaky_relu_insts.bin",
+            "size": 348
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 784
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{
+	"conv_pool":{
+		"comments":"Do conv_act_pool operation",
+		"func":"conv_act_pool",
+		"enable": true,
+		"in_dim_x": {
+			"start": 14,
+			"stop": 224,
+			"step": 3,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start":28,
+			"stop": 224,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 8,
+			"stop": 512,
+			"step": 3,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 16,
+			"stop": 1024,
+			"step": 2,
+			"mode": "mul"
+		},
+		"ker_x":{
+			"start": 3,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		},
+		"ker_y":{
+			"start": 3,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_x":{
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_y":{
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_x":{
+			"start": 1,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y":{
+			"start": 1,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"act_mode": {
+			"start": 0,
+			"stop": 4,
+			"step": 1,
+			"mode": "add"
+		},
+        "pooling_dim": {
+            "start": 2,
+            "stop": 2,
+            "step": 1,
+            "mode": "add"
+        }
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"layer1":{
+		"comments":"activation",
+		"enable": true,
+		"func":"relu",
+		"in_dim_x": 5,
+		"in_dim_y": 5,
+		"in_ch": 8,
+		"base":{
+			"ifmap0":2,
+			"act":1,
+			"ofmap":2
+		},
+		"act": "relu_table.bin",
+		"insts": "relu_insts.bin"
+	}
+}

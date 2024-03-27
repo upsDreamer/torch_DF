@@ -1,0 +1,31 @@
+{
+	"activation":{
+		"comments":"Do activation operation",
+		"func":"activation",
+		"enable": true,
+        "act_mode":{
+            "start": 0,
+            "stop": 5,
+            "step": 1,
+            "mode": "add"
+        },
+		"in_dim_x": {
+			"start": 8,
+			"stop": 257,
+			"step": 2,
+			"mode": "add"
+			},
+		"in_dim_y": {
+			"start":8,
+			"stop": 257,
+			"step": 2,
+			"mode": "add"
+			},
+		"in_ch":{
+			"start": 1,
+			"stop": 257,
+			"step": 1,
+			"mode": "add"
+		}
+	}
+}

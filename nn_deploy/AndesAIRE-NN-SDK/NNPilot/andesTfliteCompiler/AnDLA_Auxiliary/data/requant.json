@@ -1,0 +1,18 @@
+{
+	"requant":{
+		"comments":"Do elementwise requant operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 3,
+		"base":{
+			"ifmap":4,
+			"coeff":5,
+			"ofmap":4
+		},
+		"in_dim_x": 7,
+		"in_dim_y": 7,
+		"in_ch": 16,
+		"coeff": "requant_coeff.bin",
+		"insts": "requant_insts.bin"
+	}
+}

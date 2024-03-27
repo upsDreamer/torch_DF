@@ -1,0 +1,22 @@
+{
+    "layer1": {
+        "comments": "pixel shuffle",
+        "func": "px_shuff",
+        "base": {
+            "ifmap": 1,
+            "ofmap": 1
+        },
+        "insts": {
+            "name": "px_shuff_insts.bin",
+            "size": 43192
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 7056
+        },
+        "ofmap": {
+            "addr": "0xfe460",
+            "size": 7056
+        }
+    }
+}

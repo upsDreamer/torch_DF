@@ -1,0 +1,177 @@
+#
+# Copyright (c) 2012-2021 Andes Technology Corporation
+# All rights reserved.
+#
+PLAT    = RV32P
+
+USE_ANDLA = 0
+USE_LIBNN = 1
+LIBNN_TYPE = sym
+
+# Mode: LOAD, BURN, XIP
+MODE    = LOAD
+
+ifndef CROSS_COMPILE
+        ifneq (,$(filter $(COMPILER),riscv32 riscv32-llvm))
+                CROSS_COMPILE = riscv32-elf-
+        endif
+endif
+ifndef CROSS_COMPILE
+        ifneq (,$(filter $(COMPILER),riscv64 riscv64-llvm))
+                CROSS_COMPILE = riscv64-elf-
+        endif
+endif
+ifndef CROSS_COMPILE
+$(error You have to specify 'COMPILER' to build ! Ex: make -f Makefile.PureC COMPILER=[riscv32|riscv64|riscv32-llvm|riscv64-llvm])
+endif
+
+ifneq (,$(filter $(COMPILER),riscv32-llvm riscv64-llvm))
+CC      := $(CROSS_COMPILE)clang
+CXX     := $(CROSS_COMPILE)clang++
+else
+CC      := $(CROSS_COMPILE)gcc
+CXX     := $(CROSS_COMPILE)g++
+endif
+
+OBJDUMP := $(CROSS_COMPILE)objdump
+OBJCOPY := $(CROSS_COMPILE)objcopy
+AR      := $(CROSS_COMPILE)ar
+AS      := $(CROSS_COMPILE)as
+SIZE    := $(CROSS_COMPILE)size
+
+ifeq ($(USE_ANDLA), 1)
+    ifeq ($(USE_LIBNN), 1)
+        $(error Only support "USE_ANDLA=1 and USE_LIBNN=0" or "USE_ANDLA=0 and USE_LIBNN=1".)
+    else
+        $(info)
+        MODEL_TYPE=andla
+        LIBNN_TYPE=
+    endif
+else
+    ifeq ($(USE_LIBNN), 1)
+        $(info)
+        MODEL_TYPE=libnn
+    else
+        $(error Only support "USE_ANDLA=1 and USE_LIBNN=0" or "USE_ANDLA=0 and USE_LIBNN=1".)
+    endif
+endif
+
+# Define the BSP source files we have
+BSP_SOURCE_DIR      = ../c_backend_source/bsp
+LIBNN_INC_DIR		= ../c_backend_source/lib/Include
+
+DEMO_SRCS = \
+        ./$(MODEL_TYPE)/main.c \
+        ./$(MODEL_TYPE)/c_code_templete/$(LIBNN_TYPE)/model.c \
+        ./$(MODEL_TYPE)/c_code_templete/$(LIBNN_TYPE)/model_para.S \
+
+BSP_SRCS = \
+        $(BSP_SOURCE_DIR)/ae350/ae350.c \
+        $(BSP_SOURCE_DIR)/ae350/interrupt.c \
+        $(BSP_SOURCE_DIR)/ae350/uart.c \
+        $(BSP_SOURCE_DIR)/cache.c \
+        $(BSP_SOURCE_DIR)/initfini.c \
+        $(BSP_SOURCE_DIR)/reset.c \
+        $(BSP_SOURCE_DIR)/trap.c \
+        $(BSP_SOURCE_DIR)/perf_counter.c \
+        $(BSP_SOURCE_DIR)/start.S
+
+# Define all object files.
+# SRCS = $(DEMO_SRCS)
+SRCS = $(BSP_SRCS) $(DEMO_SRCS)
+OBJS = $(patsubst %.S,%.o,$(patsubst %.cpp,%.o,$(patsubst %.c,%.o,${SRCS})))
+
+
+# Compilation options
+# LDSCRIPT =
+LDSCRIPT = ../c_backend_source/ae350.ld
+
+INCLUDES = \
+        -I$(BSP_SOURCE_DIR) \
+        -I$(BSP_SOURCE_DIR)/ae350 \
+        -I$(LIBNN_INC_DIR) \
+        -I$(MODEL_TYPE)/c_code_templete/$(LIBNN_TYPE) \
+        -I.
+
+# CFLAGS = -Wall -ffunction-sections -fdata-sections -fno-strict-aliasing #-Werror
+# CFLAGS = -O3 -g3 -Wall -ffunction-sections -fdata-sections -fno-strict-aliasing #-Werror
+CFLAGS = \
+        -O3 -g3 \
+        -Wall -Wextra -Wno-missing-braces -Wconversion -Wsign-conversion $(OPTIM) $(INCLUDES) $(DEFINES) \
+        -fomit-frame-pointer -fno-strict-aliasing -fno-builtin \
+        -ffunction-sections -fdata-sections \
+        -DCFG_MAKEFILE -DCFG_$(MODE) -DCFG_$(subst -,_,$(DEMO))
+
+
+# CFLAGS += $(INCLUDES)
+CFLAGS += -DUSE_ANDLA=$(USE_ANDLA)
+
+ASFLAGS = -D__ASSEMBLY__ $(CFLAGS) -c
+
+LDFLAGS = -Llib -T$(LDSCRIPT) $(OPTIM) -static -flto -nostartfiles -mvh -Wl,--gc-sections -Wl,-Map=$(PROG).map
+# LDFLAGS = -L$(DLA_LIB_DIR) -Llib -T$(LDSCRIPT) $(OPTIM) -static -flto -nostartfiles -Wl,--gc-sections -Wl,-Map=$(PROG).map
+# LDFLAGS = -L$(DLA_LIB_DIR) -Llib -T$(LDSCRIPT) $(OPTIM) -static -nostartfiles -Wl,--gc-sections
+
+LDFLAGS += -mcmodel=medany
+CFLAGS += -mcmodel=medany
+CXXFLAGS += -mcmodel=medany
+
+ifeq ($(PLAT), RV32P)
+ALL_LIBS += -mext-dsp -lnn
+PROG ?= sample-libnn-demo-RV32P
+else
+ALL_LIBS += -lnn
+PROG ?= sample-libnn-demo-PureC32
+endif
+
+ifeq ($(LIBNN_TYPE), sym)
+CFLAGS += -DLIBNN_TYPE_SYM
+endif
+
+ifeq ($(USE_ANDLA), 1)
+ANDLA_LIB_FILE = ../c_backend_source/lib/libandla.a
+ifeq ($(ANDLA_LIB_FILE),$(shell find ../c_backend_source/lib/ -name "libandla.a"))
+$(info)
+else
+$(error AnDLA cannot be found in this released package.)
+endif
+
+DLA_LIB_DIR = ../c_backend_source/lib
+INCLUDES += -I$(DLA_LIB_DIR)
+LDFLAGS += -L$(DLA_LIB_DIR)
+ALL_LIBS += -L$(DLA_LIB_DIR) -landla
+endif
+
+# Compilation rules
+.SUFFIXES : %.o %.c %.cpp %.S
+
+%.o: %.c
+	$(TRACE_CC)
+	$(Q)$(CC) -c -MMD $(CFLAGS) $(CPPFLAGS) -o $@ $< 
+
+%.o: %.S
+	$(TRACE_CC)
+	$(Q)$(CC) -c -MMD $(CFLAGS) -o $@ $<
+
+all: $(PROG).elf
+
+$(PROG).elf  : $(OBJS)
+	$(CXX) -o $@ $(LDFLAGS) $(OBJS) $(ALL_LIBS)
+	$(SIZE) $(PROG).elf
+	$(OBJCOPY) -O binary -S $(PROG).elf $(PROG).bin
+	$(OBJDUMP) -S $(PROG).elf > $(PROG).lst
+	@echo Completed
+
+clean :
+	@rm -f $(OBJS) $(OBJS:.o=.d)
+	@rm -f $(PROG).elf
+	@rm -f $(PROG).map
+	@rm -f $(PROG).bin
+	@rm -f $(PROG).lst
+
+# Automatic dependency generation
+ifneq ($(MAKECMDGOALS),clean)
+-include $(OBJS:.o=.d)
+endif
+
+

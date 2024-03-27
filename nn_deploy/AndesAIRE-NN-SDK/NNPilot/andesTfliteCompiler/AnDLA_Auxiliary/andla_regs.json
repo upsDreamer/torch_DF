@@ -1,0 +1,569 @@
+{
+	"CDMA": {
+		"base":"0xDE000000",
+		"regs":{
+			"SFENCE":{
+				"offset":	"0x00000000",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"DIRECTION":{
+				"offset":	"0x00000004",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"EXRAM_ADDR_22LSB":{
+				"offset":	"0x00000008",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"EXRAM_ADDR_10MSB":{
+				"offset":	"0x0000000C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"EXRAM_C":{
+				"offset":	"0x00000010",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"}
+		}
+	},
+	
+	"SDMA": {
+		"base":"0xDE000080",
+		"regs":{
+			"SFENCE":{
+				"offset":	"0x00000000",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"DIRECTION":{
+				"offset":	"0x00000004",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_ADDR_22LSB":{
+				"offset":	"0x00000008",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_ADDR_10MSB":{
+				"offset":	"0x0000000C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_ADDR":{
+				"offset":	"0x00000010",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_C":{
+				"offset":	"0x00000014",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_W":{
+				"offset":	"0x00000018",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_H":{
+				"offset":	"0x0000001C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_N":{
+				"offset":	"0x00000020",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRMA_STRIDE_W_SIZE":{
+				"offset":	"0x00000024",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_STRIDE_H_SIZE":{
+				"offset":	"0x00000028",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_STRIDE_N_SIZE":{
+				"offset":	"0x0000002C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_C":{
+				"offset":	"0x00000030",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_W":{
+				"offset":	"0x00000034",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_H":{
+				"offset":	"0x00000038",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_N":{
+				"offset":	"0x0000003C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_RIGHT":{
+				"offset":	"0x00000040",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_LEFT":{
+				"offset":	"0x00000044",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_UP":{
+				"offset":	"0x00000048",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_DOWN":{
+				"offset":	"0x0000004C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"CONST_VALUE":{
+				"offset":	"0x00000050",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"CH_NUM":{
+				"offset":	"0x00000054",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"DECOMP_PADDING_BY_PASS":{
+				"offset":	"0x00000058",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"RAM_PADDING_VALUE":{
+				"offset":	"0x0000005C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_FRONT":{
+				"offset":	"0x00000060",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_BACK":{
+				"offset":	"0x00000064",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"}
+		}
+	},
+	
+	"LDMA": {
+		"base":"0xDE000100",
+		"regs":{
+			"SFENCE":{
+				"offset":	"0x00000000",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"DIRECTION":{
+				"offset":	"0x00000004",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_ADDR_22LSB":{
+				"offset":	"0x00000008",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_ADDR_10MSB":{
+				"offset":	"0x0000000C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_ADDR":{
+				"offset":	"0x00000010",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_C":{
+				"offset":	"0x00000014",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_W":{
+				"offset":	"0x00000018",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_H":{
+				"offset":	"0x0000001C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_N":{
+				"offset":	"0x00000020",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRMA_STRIDE_W_SIZE":{
+				"offset":	"0x00000024",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_STRIDE_H_SIZE":{
+				"offset":	"0x00000028",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"EXRAM_STRIDE_N_SIZE":{
+				"offset":	"0x0000002C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_C":{
+				"offset":	"0x00000030",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_W":{
+				"offset":	"0x00000034",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_H":{
+				"offset":	"0x00000038",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_N":{
+				"offset":	"0x0000003C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_RIGHT":{
+				"offset":	"0x00000040",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_LEFT":{
+				"offset":	"0x00000044",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_UP":{
+				"offset":	"0x00000048",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_DOWN":{
+				"offset":	"0x0000004C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"CONST_VALUE":{
+				"offset":	"0x00000050",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"CH_NUM":{
+				"offset":	"0x00000054",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"DECOMP_PADDING_BY_PASS":{
+				"offset":	"0x00000058",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"RAM_PADDING_VALUE":{
+				"offset":	"0x0000005C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_FRONT":{
+				"offset":	"0x00000060",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+
+			"SHRAM_PAD_BACK":{
+				"offset":	"0x00000064",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"}
+		}
+	},
+	
+	"GEMM": {
+		"base":"0xDE000180",
+		"regs":{
+			"SFENCE":{
+				"offset":	"0x00000000",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xFFC00000"},
+				
+			"SHRAM_ADDR_IM":{
+				"offset":	"0x00000004",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xFFC00CFF"},
+	
+			"SHRAM_ADDR_KR":{
+				"offset":	"0x00000008",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xFFC00CFF"},
+	
+			"SHRAM_ADDR_SC":{
+				"offset":	"0x0000000C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+	
+			"SHRAM_ADDR_BS":{
+				"offset":	"0x00000010",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+		
+			"SHRAM_ADDR_OM":{
+				"offset":	"0x00000014",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},	
+	
+			"KW":{
+				"offset":	"0x00000018",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+	
+			"KH":{
+				"offset":	"0x0000001C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+	
+			"OW":{
+				"offset":	"0x00000020",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+	
+			"OH":{
+				"offset":	"0x00000024",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"IC":{
+				"offset":	"0x00000028",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"IN":{
+				"offset":	"0x0000002C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"OCOW":{
+				"offset":	"0x00000030",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"ICSW":{
+				"offset":	"0x00000034",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"ICIW":{
+				"offset":	"0x00000038",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"ICIWSH":{
+				"offset":	"0x0000003C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"ICKWKH":{
+				"offset":	"0x00000040",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"ICKW":{
+				"offset":	"0x00000044",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			
+			"IS_BS_CHANNEL_WISE":{
+				"offset":	"0x00000048",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xfffffffe"},
+			
+			"IS_SC_CHANNEL_WISE":{
+				"offset":	"0x0000004C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xfffffffe"}
+		}
+	},
+
+	"ROR": {
+		"base":"0xDE000380",
+		"regs":{
+			"REG_REVISION": {
+				"offset":	"0x00000000",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"REG_ID":	{
+				"offset":	"0x00000004",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"REG_STATUS":	{
+				"offset":	"0x00000008",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"REG_CONTROL":	{
+				"offset":	"0x0000000C",
+				"type":		"rw",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"REG_CREDIT":	{
+				"offset":	"0x00000010",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"COUNTER_LSB":	{
+				"offset":	"0x00000014",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"COUNTER_MSB":	{
+				"offset":	"0x00000018",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"COUNTER_MASK":	{
+				"offset":	"0x0000001C",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_0_LSB":	{
+				"offset":	"0x00000020",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_0_MSB":	{
+				"offset":	"0x00000024",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_1_LSB":	{
+				"offset":	"0x00000028",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_1_MSB":	{
+				"offset":	"0x0000002C",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_2_LSB":	{
+				"offset":	"0x00000030",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_2_MSB":	{
+				"offset":	"0x00000034",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_3_LSB":	{
+				"offset":	"0x00000038",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"},
+			"BASE_3_MSB":	{
+				"offset":	"0x0000003C",
+				"type":		"ro",
+				"default":	"0x00000000",
+				"mask":		"0xffffffff"}
+		}
+	}
+}

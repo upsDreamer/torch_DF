@@ -1,0 +1,70 @@
+{
+	"layer1":{
+		"comments":"split x",
+		"enable": false,
+		"func": "split",
+		"in_tensor_y": 14,
+		"in_tensor_z": 14,
+		"in_tensor_x": 16,
+		"in_tensor_w": 2,
+		"axis": "x",
+		"out_tensor": 8,
+		"in_offset": 8,
+		"base":{
+			"ifmap":1,
+			"ofmap":1
+		},
+		"insts": "split_x_insts.bin"
+	},
+	"layer2":{
+		"comments":"split y",
+		"enable": false,
+		"func": "split",
+		"in_tensor_y": 14,
+		"in_tensor_z": 14,
+		"in_tensor_x": 8,
+		"in_tensor_w": 2,
+		"axis": "y",
+		"out_tensor": 7,
+		"in_offset": 2,
+		"base":{
+			"ifmap":2,
+			"ofmap":2
+		},
+		"insts": "split_y_insts.bin"
+	},
+	"layer3":{
+		"comments":"split z",
+		"enable": false,
+		"func": "split",
+		"in_tensor_x": 8,
+		"in_tensor_y": 7,
+		"in_tensor_z": 14,
+		"in_tensor_w": 2,
+		"axis": "z",
+		"out_tensor": 7,
+		"in_offset": 0,
+		"base":{
+			"ifmap":3,
+			"ofmap":3
+		},
+		"insts": "split_z_insts.bin"
+	},
+	"layer4":{
+		"comments":"split w",
+		"enable": true,
+		"func": "split",
+		"in_tensor_x": 8,
+		"in_tensor_y": 14,
+		"in_tensor_z": 14,
+		"in_tensor_w": 4,
+		"axis": "w",
+		"out_tensor": 2,
+		"in_offset": 1,
+		"base":{
+			"ifmap":1,
+			"ofmap":1
+		},
+		"insts": "split_w_insts.bin"
+	}
+}

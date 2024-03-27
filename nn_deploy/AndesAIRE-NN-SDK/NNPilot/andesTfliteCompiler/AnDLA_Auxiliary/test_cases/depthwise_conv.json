@@ -1,0 +1,67 @@
+{
+	"depthwise_conv":{
+		"comments":"Do depthwise convoultion operation",
+		"func":"depthwise_convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 8,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 8,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		},
+		"ker_x":{
+			"start": 3,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"ker_y":{
+			"start": 3,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_x":{
+			"start": 0,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_y":{
+			"start": 0,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_x":{
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y":{
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		}
+	}
+}

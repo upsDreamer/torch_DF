@@ -1,0 +1,22 @@
+{
+    "layer4": {
+        "comments": "split w",
+        "func": "split",
+        "base": {
+            "ifmap": 1,
+            "ofmap": 1
+        },
+        "insts": {
+            "name": "split_w_insts.bin",
+            "size": 204
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 6272
+        },
+        "ofmap": {
+            "addr": "0xff3b0",
+            "size": 3136
+        }
+    }
+}

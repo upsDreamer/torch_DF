@@ -1,0 +1,155 @@
+{
+	"split_x":{
+		"comments":"Do split channel operation",
+		"func":"split",
+		"enable": false,
+		"mode": 0,
+		"in_dim_y": {
+			"start": 28,
+			"stop": 224,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_z": {
+			"start": 28,
+			"stop": 224,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_x": {
+			"start": 8,
+			"stop": 64,
+			"step": 8,
+			"mode": "mul"
+		},
+		"in_dim_w": {
+			"start": 0,
+			"stop": 8,
+			"step": 1,
+			"mode": "add"
+		},
+		"out_dim_n": {
+			"start": 8,
+			"stop": 16,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_offset": {
+			"start": 0,
+			"stop": 16,
+			"step": 8,
+			"mode": "add"
+		}
+	},
+	"split_y":{
+		"comments":"Do split width operation",
+		"func":"split",
+		"enable": false,
+		"mode": 1,
+		"in_dim_y": {
+			"start": 7,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_z": {
+			"start": 28,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_x": {
+			"start": 8,
+			"stop": 64,
+			"step": 8,
+			"mode": "mul"
+		},
+		"in_dim_w": {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"out_dim_n": {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"in_offset": {
+			"start": 0,
+			"stop": 4,
+			"step": 2,
+			"mode": "add"
+		}
+	},
+	"split_z":{
+		"comments":"Do split high operation",
+		"func":"split",
+		"enable": false,
+		"mode": 2,
+		"in_dim_y": {
+			"start": 56,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_z": {
+			"start": 56,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_x": {
+			"start": 8,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_w":  {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"out_dim_n": {
+			"start": 2,
+			"stop": 8,
+			"step": 2,
+			"mode": "add"
+		},
+		"in_offset":  {
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		}
+	},
+	"split_w":{
+		"comments":"Do split batch operation",
+		"func":"split",
+		"enable": true,
+		"mode": 3,
+		"in_dim_y": 28,
+		"in_dim_z": 28,
+		"in_dim_x": 16,
+		"in_dim_w": {
+			"start": 2,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"out_dim_n":  {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"in_offset":  {
+			"start": 0,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		}
+	}
+}

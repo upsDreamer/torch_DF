@@ -1,0 +1,17 @@
+size0: 3
+log_dir: ./andesprune_logger/pruning-record_2021.11.01-102046/test_checkpoint.pth.tar
+size1: 32
+size2: 32
+bits_weight: 8
+bits_activation: 8
+bits_bias: 32
+w_symmetry: true
+a_symmetry: false
+quantile: 6.0
+equalize: true
+absorption: false
+signed_e: false
+correction: false
+isReLU6: false
+calibration: true
+model_path: vww_quant.pth

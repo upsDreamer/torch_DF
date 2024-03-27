@@ -1,0 +1,22 @@
+{
+    "layer1": {
+        "comments": "channel shuffle",
+        "func": "ch_shuff",
+        "base": {
+            "ifmap": 1,
+            "ofmap": 1
+        },
+        "insts": {
+            "name": "ch_shuff_insts.bin",
+            "size": 50364
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 9408
+        },
+        "ofmap": {
+            "addr": "0xfdb30",
+            "size": 9408
+        }
+    }
+}

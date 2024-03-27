@@ -1,0 +1,28 @@
+{
+    "requant": {
+        "comments": "Do elementwise requant operation",
+        "func": "elementwise",
+        "base": {
+            "ifmap": 4,
+            "coeff": 5,
+            "ofmap": 4
+        },
+        "coeff": {
+            "name": "requant_coeff.bin",
+            "addr": "0x0",
+            "size": 32
+        },
+        "insts": {
+            "name": "requant_insts.bin",
+            "size": 272
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 784
+        },
+        "ofmap": {
+            "addr": "0x7fce0",
+            "size": 784
+        }
+    }
+}

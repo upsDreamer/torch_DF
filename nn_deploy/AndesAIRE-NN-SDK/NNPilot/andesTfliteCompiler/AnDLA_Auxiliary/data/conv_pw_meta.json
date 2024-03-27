@@ -1,0 +1,35 @@
+{
+    "layer2": {
+        "comments": "pointwise convolution",
+        "func": "conv_pw",
+        "base": {
+            "ifmap": 1,
+            "weight": 2,
+            "bias": 2,
+            "scale": 2,
+            "ofmap": 1
+        },
+        "weight": {
+            "name": "conv_pw_weight.bin",
+            "addr": "0x0",
+            "size": 128
+        },
+        "bias": {
+            "name": "conv_pw_bias.bin",
+            "addr": "0x80",
+            "size": 80
+        },
+        "insts": {
+            "name": "conv_pw_insts.bin",
+            "size": 312
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 25088
+        },
+        "ofmap": {
+            "addr": "0xf3bf0",
+            "size": 50176
+        }
+    }
+}

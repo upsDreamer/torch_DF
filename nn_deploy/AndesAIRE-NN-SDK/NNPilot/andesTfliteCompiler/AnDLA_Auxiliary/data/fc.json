@@ -1,0 +1,19 @@
+{
+	"layer4":{
+		"comments":"fully connect",
+		"enable": true,
+		"func":"fc",
+		"in_ch": 12544,
+		"out_ch": 10,
+		"base":{
+			"ifmap":1,
+			"weight":2,
+			"bias":2,
+			"scale":2,
+			"ofmap":1
+		},
+		"weight": "fc_weight.bin",
+		"bias": "fc_bias.bin",
+		"insts": "fc_insts.bin"
+	}
+}

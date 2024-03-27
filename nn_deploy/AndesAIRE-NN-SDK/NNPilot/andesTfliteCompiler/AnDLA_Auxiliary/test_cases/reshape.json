@@ -1,0 +1,203 @@
+{
+	"ups":{
+		"comments":"Do upsampling operation",
+		"func":"ups",
+		"enable": false,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 28,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 8,
+			"stop": 16,
+			"step": 2,
+			"mode": "mul"
+		},
+		"scale_x": {
+			"start": 2,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"scale_y": {
+			"start": 3,
+			"stop": 6,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+	"pad":{
+		"comments":"Do padding operation",
+		"func":"pad",
+		"enable": false,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 14,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 8,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"top": {
+			"start": 0,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		},
+		"bottom": 1,
+		"left": 1,
+		"right": 1,
+		"front": {
+			"start": 0,
+			"stop": 16,
+			"step": 8,
+			"mode": "add"
+		},
+		"back": 8,
+		"value": -128
+	},
+	"d2s": {
+		"comments": "Do Depth to Space operation",
+		"func": "d2s",
+		"enable": false,
+		"in_dim_x": {
+			"start": 128,
+			"stop": 512,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 128,
+			"stop": 512,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 9,
+			"stop": 576,
+			"step": 2,
+			"mode": "mul"
+		},
+		"block_size": {
+			"start": 2,
+			"stop": 4,
+			"step": 1,
+			"mode": "add"
+		}
+	},
+	"s2d": {
+		"comments": "Do Space to Depth operation",
+		"func": "s2d",
+		"enable": false,
+		"in_dim_x": {
+			"start": 135,
+			"stop": 1080,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 135,
+			"stop": 1080,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 1,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		},
+		"block_size": {
+			"start": 2,
+			"stop": 4,
+			"step": 1,
+			"mode": "add"
+		}
+	},
+	"ch_shuff": {
+		"comments": "Do channel shuffle operation",
+		"func": "ch_shuff",
+		"enable": true,
+		"batch": {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 3,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"group": {
+			"start": 2,
+			"stop": 4,
+			"step": 1,
+			"mode": "add"
+		}
+	},
+	"px_shuff": {
+		"comments": "Do pixel shuffle operation",
+		"func": "px_shuff",
+		"enable": true,
+		"batch": {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"in_dim_x": {
+			"start": 3,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 3,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 9,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"up_factor": {
+			"start": 2,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		}
+	}
+}

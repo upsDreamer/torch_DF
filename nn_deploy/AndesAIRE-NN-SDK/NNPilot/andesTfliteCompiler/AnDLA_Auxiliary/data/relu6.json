@@ -1,0 +1,18 @@
+{
+	"layer1":{
+		"comments":"activation",
+		"enable": true,
+		"func":"relu6",
+        "act_mode":1,
+		"in_dim_x": 5,
+		"in_dim_y": 5,
+		"in_ch": 8,
+		"base":{
+			"ifmap0":3,
+			"act":2,
+			"ofmap":3
+		},
+		"act": "relu6_table.bin",
+		"insts": "relu6_insts.bin"
+	}
+}

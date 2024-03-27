@@ -1,0 +1,32 @@
+{
+    "ew_sub": {
+        "comments": "Do elementwise sub operation",
+        "func": "elementwise",
+        "base": {
+            "ifmap": 4,
+            "coeff": 5,
+            "ofmap": 4
+        },
+        "coeff": {
+            "name": "ew_sub_coeff.bin",
+            "addr": "0x0",
+            "size": 32
+        },
+        "insts": {
+            "name": "ew_sub_insts.bin",
+            "size": 284
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 784
+        },
+        "ifmap1": {
+            "addr": "0x310",
+            "size": 784
+        },
+        "ofmap": {
+            "addr": "0xffce0",
+            "size": 784
+        }
+    }
+}

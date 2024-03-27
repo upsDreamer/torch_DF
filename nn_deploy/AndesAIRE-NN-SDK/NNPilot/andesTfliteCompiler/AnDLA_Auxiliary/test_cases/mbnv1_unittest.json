@@ -1,0 +1,105 @@
+{
+	"pointwise_conv":{
+		"comments":"Do pointwise convoultion operation",
+		"func":"pointwise_convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 32,
+			"stop": 1024,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 64,
+			"stop": 1024,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+	
+	"depthwise_conv":{
+		"comments":"Do depthwise convoultion operation",
+		"func":"depthwise_convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 112,
+			"step": 2,
+			"mode": "mul"
+			},
+		"out_ch":{
+			"start": 32,
+			"stop": 1024,
+			"step": 2,
+			"mode": "mul"
+		},
+		"ker_x": 3,
+		"ker_y": 3,
+		"pad_x": 0,
+		"pad_y": 0,
+		"stride_x":{
+			"start": 1,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y":{
+			"start": 1,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		}
+	},
+	
+	"fully_connect":{
+		"comments":"Do fully connect operation",
+		"func":"fully_connect",
+		"enable": true,
+		"in_ch": 1024,
+		"out_ch": 1000
+	},
+	
+	"conv":{
+		"comments":"Do convoultion operation",
+		"func":"convolution",
+		"enable": true,
+		"in_dim_x":  224,
+		"in_dim_y":  224,
+		"in_ch": 8,
+		"out_ch": 32,
+		"ker_x": 3,
+		"ker_y": 3,
+		"pad_x":{
+			"start": 0,
+			"stop": 1,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_y":{
+			"start": 0,
+			"stop": 1,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_x": 2,
+		"stride_y": 2
+	}
+}

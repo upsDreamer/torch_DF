@@ -1,0 +1,22 @@
+{
+	"layer5":{
+		"comments":"padding",
+		"enable": true,
+		"func":"padding",
+		"in_dim_x": 112,
+		"in_dim_y": 112,
+		"in_ch": 64,
+		"pad_left": 0,
+		"pad_right": 1,
+		"pad_top": 0,
+		"pad_bottom": 1,
+		"pad_front": 0,
+		"pad_back": 0,
+		"pad_val": -128,
+		"base":{
+			"ifmap":1,
+			"ofmap":1
+		},
+		"insts": "pad_insts.bin"
+	}
+}

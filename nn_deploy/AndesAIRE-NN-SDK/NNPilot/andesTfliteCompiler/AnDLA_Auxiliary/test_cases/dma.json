@@ -1,0 +1,98 @@
+{
+	"ldma":{
+		"comments":"Do LDMA test",
+		"func":"dma",
+		"enable": true,
+		"mode": 0,
+		"ddr_addr": "0x0c000db1",
+		"sram_addr":"0xd0000008",
+		"pad_val": "0x80",
+		"in_dim_x": {
+			"start": 28,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 30,
+			"stop": 40,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 3,
+			"stop": 27,
+			"step": 3,
+			"mode": "mul"
+		},
+		"pad_right":{
+			"start": 0,
+			"stop": 15,
+			"step": 3,
+			"mode": "add"
+		},
+		"pad_left":{
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_top":{
+			"start": 0,
+			"stop": 6,
+			"step": 2,
+			"mode": "add"
+		},
+		"pad_bottom":{
+			"start": 0,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_front":{
+			"start": 0,
+			"stop": 15,
+			"step": 5,
+			"mode": "add"
+		},
+		"pad_back":{
+			"start": 0,
+			"stop": 15,
+			"step": 3,
+			"mode": "add"
+		}
+	},
+
+	"sdma":{
+		"comments":"Do SDMA test",
+		"func":"dma",
+		"enable": true,
+		"ddr_addr": "0x0c001001",
+		"sram_addr":"0xd00000f0",
+		"mode": 1,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 3,
+			"stop": 40,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 1,
+			"stop": 33,
+			"step": 2,
+			"mode": "add"
+		},
+		"pad_right":	0,
+		"pad_left": 	0,
+		"pad_top":		0,
+		"pad_bottom":	0,
+		"pad_front":	0,
+		"pad_back":		0
+	}
+}

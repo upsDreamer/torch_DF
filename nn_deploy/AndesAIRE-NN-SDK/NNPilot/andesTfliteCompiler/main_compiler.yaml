@@ -1,0 +1,224 @@
+System_Config:
+  AnDLA_256MAC_2048K:
+    AnDLA_name: i350
+    hw_version: v1.0
+    core_clock: 200e6
+    num_macs_per_cycle: 256
+    GEMM_channel_align: 16
+    GEMM_width_align: 4
+    GEMM_height_align: 4
+    dma_channel_threshold: 128
+    axi_bus_width: 64
+    bus_utilization: 1.0
+    EDP_unit: 16
+    ports_order:
+      - Shared_Sram
+      - Dram
+    memories:
+      - name: Dram
+        clock_scale: 0.6
+        burst_length: 128
+        beat: 8
+        write_latency: 40
+        read_latency: 40
+        size: 65536
+        weight: 1
+      - name: Shared_Sram
+        clock_scale: 1.0
+        burst_length: 32
+        beat: 8
+        write_latency: 15
+        read_latency: 15
+        size: 2048
+        bank: 16
+        weight: 1
+    areas:
+      const_mem_area: port_1
+      arena_mem_area: 
+        - port_1
+      cache_mem_area:
+        - port_1
+  
+  AnDLA_AMD_DEMO:
+    AnDLA_name: i350
+    hw_version: v1.0
+    core_clock: 200e6
+    num_macs_per_cycle: 64
+    GEMM_channel_align: 8
+    GEMM_width_align: 4
+    GEMM_height_align: 2
+    dma_channel_threshold: 128
+    axi_bus_width: 64
+    bus_utilization: 1.0
+    EDP_unit: 8
+    ports_order:
+      - Shared_Sram
+      - Dram
+    memories:
+      - name: Dram
+        clock_scale: 0.6
+        burst_length: 128
+        beat: 8
+        write_latency: 40
+        read_latency: 40
+        size: 32428
+        weight: 1
+      - name: Shared_Sram
+        clock_scale: 1.0
+        burst_length: 32
+        beat: 8
+        write_latency: 15
+        read_latency: 15
+        size: 2048
+        bank: 16
+        weight: 1
+    areas:
+      const_mem_area: port_1
+      arena_mem_area: 
+        - port_0
+      cache_mem_area:
+        - port_1
+
+  AnDLA_RVP_Multi_Mem:
+    AnDLA_name: i350
+    hw_version: v1.0
+    core_clock: 200e6
+    num_macs_per_cycle: 64
+    GEMM_channel_align: 8
+    GEMM_width_align: 4
+    GEMM_height_align: 2
+    dma_channel_threshold: 128
+    axi_bus_width: 64
+    bus_utilization: 1.0
+    EDP_unit: 8
+    ports_order:
+      - Sram
+      - TCM
+      - Dram
+      - Shared_Sram
+    memories:
+      - name: Sram
+        clock_scale: 1.0
+        burst_length: 32
+        beat: 8
+        write_latency: 15
+        read_latency: 15
+        size: 512
+        weight: 1
+
+      - name: TCM
+        clock_scale: 1.0
+        burst_length: 32
+        beat: 8
+        write_latency: 15
+        read_latency: 15
+        size: 512
+        weight: 1
+
+      - name: Dram
+        clock_scale: 0.6
+        burst_length: 128
+        beat: 8
+        write_latency: 40
+        read_latency: 40
+        size: 32428
+        weight: 1
+
+      - name: Shared_Sram
+        clock_scale: 1.0
+        burst_length: 32
+        beat: 8
+        write_latency: 15
+        read_latency: 15
+        size: 512
+        bank: 16
+        weight: 1
+    areas:
+      const_mem_area: port_2
+      arena_mem_area: 
+        - port_0
+        - port_1
+        - port_2
+      cache_mem_area:
+        - port_0
+        - port_1
+
+  AnDLA_32k_8bank:
+    AnDLA_name: i350
+    hw_version: v1.0
+    core_clock: 200e6
+    num_macs_per_cycle: 64
+    GEMM_channel_align: 8
+    GEMM_width_align: 4
+    GEMM_height_align: 2
+    dma_channel_threshold: 128
+    axi_bus_width: 64
+    bus_utilization: 1.0
+    EDP_unit: 8
+    ports_order:
+      - Shared_Sram
+      - Dram
+    memories:
+      - name: Dram
+        clock_scale: 0.6
+        burst_length: 128
+        beat: 8
+        write_latency: 40
+        read_latency: 40
+        size: 32428
+        weight: 1
+      - name: Shared_Sram
+        clock_scale: 1.0
+        burst_length: 32
+        beat: 8
+        write_latency: 15
+        read_latency: 15
+        size: 32
+        bank: 8
+        weight: 1
+    areas:
+      const_mem_area: port_1
+      arena_mem_area: 
+        - port_1
+      cache_mem_area:
+        - port_1
+  
+  AnDLA_RVP_Embedded:
+    AnDLA_name: i350
+    hw_version: v1.0
+    core_clock: 200e6
+    num_macs_per_cycle: 64
+    GEMM_channel_align: 8
+    GEMM_width_align: 4
+    GEMM_height_align: 2
+    dma_channel_threshold: 128
+    axi_bus_width: 64
+    bus_utilization: 1.0
+    EDP_unit: 8
+    ports_order:
+      - Shared_Sram
+      - Dram
+    memories:
+      - name: Dram
+        clock_scale: 0.6
+        burst_length: 128
+        beat: 8
+        write_latency: 40
+        read_latency: 40
+        size: 65536
+        weight: 1
+      - name: Shared_Sram
+        clock_scale: 1.0
+        burst_length: 32
+        beat: 8
+        write_latency: 15
+        read_latency: 15
+        size: 512
+        bank: 16
+        weight: 1
+    areas:
+      const_mem_area: port_1
+      arena_mem_area: 
+        - port_1
+      cache_mem_area:
+        - port_1

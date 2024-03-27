@@ -1,0 +1,29 @@
+{
+	"layer3":{
+		"comments":"depthwise convolution",
+		"enable": true,
+		"func":"conv_dw",
+		"in_dim_x": 32,
+		"in_dim_y": 32,
+		"in_ch": 16,
+		"out_ch": 16,
+		"ker_x": 5,
+		"ker_y": 5,
+		"stride_x": 2,
+		"stride_y": 2,
+		"pad_x": 1,
+		"pad_y": 1,
+		"out_dim_x": 16,
+		"out_dim_y": 16,
+		"base":{
+			"ifmap":2,
+			"weight":3,
+			"bias":3,
+			"scale":3,
+			"ofmap":2
+		},
+		"weight": "conv_dw_weight.bin",
+		"bias": "conv_dw_bias.bin",
+		"insts": "conv_dw_insts.bin"
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"pooling":{
+		"comments":"Do average pooling operation",
+		"enable": true,
+		"func":"avepool",
+		"in_dim_x": 7,
+		"in_dim_y": 7,
+		"in_ch": 1024,
+		"ker_x": 7,
+		"ker_y": 7,
+		"pad_x": 0,
+		"pad_y": 0,
+		"stride_x": 1,
+		"stride_y": 1,
+		"out_dim_x": 1,
+		"out_dim_y": 1,
+		"base":{
+			"ifmap":6,
+			"coeff":5,
+			"ofmap":6
+		},
+		"coeff": "avepool_coeff.bin",
+		"insts": "avepool_insts.bin"
+	}
+}

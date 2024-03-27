@@ -1,0 +1,35 @@
+{
+    "layer3": {
+        "comments": "depthwise convolution",
+        "func": "conv_dw",
+        "base": {
+            "ifmap": 2,
+            "weight": 3,
+            "bias": 3,
+            "scale": 3,
+            "ofmap": 2
+        },
+        "weight": {
+            "name": "conv_dw_weight.bin",
+            "addr": "0x0",
+            "size": 400
+        },
+        "bias": {
+            "name": "conv_dw_bias.bin",
+            "addr": "0x190",
+            "size": 80
+        },
+        "insts": {
+            "name": "conv_dw_insts.bin",
+            "size": 328
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 16384
+        },
+        "ofmap": {
+            "addr": "0xfeff0",
+            "size": 4096
+        }
+    }
+}

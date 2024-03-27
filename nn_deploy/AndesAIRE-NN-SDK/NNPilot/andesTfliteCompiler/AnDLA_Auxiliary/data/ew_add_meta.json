@@ -1,0 +1,32 @@
+{
+    "ew_add": {
+        "comments": "Do elementwise add operation",
+        "func": "elementwise",
+        "base": {
+            "ifmap": 1,
+            "coeff": 2,
+            "ofmap": 1
+        },
+        "coeff": {
+            "name": "ew_add_coeff.bin",
+            "addr": "0x0",
+            "size": 32
+        },
+        "insts": {
+            "name": "ew_add_insts.bin",
+            "size": 716
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 200704
+        },
+        "ifmap1": {
+            "addr": "0x31000",
+            "size": 200704
+        },
+        "ofmap": {
+            "addr": "0xceff0",
+            "size": 200704
+        }
+    }
+}

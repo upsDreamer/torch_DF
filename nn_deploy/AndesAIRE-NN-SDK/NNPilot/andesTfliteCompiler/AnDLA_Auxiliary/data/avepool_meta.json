@@ -1,0 +1,28 @@
+{
+    "pooling": {
+        "comments": "Do average pooling operation",
+        "func": "avepool",
+        "base": {
+            "ifmap": 6,
+            "coeff": 5,
+            "ofmap": 6
+        },
+        "coeff": {
+            "name": "avepool_coeff.bin",
+            "addr": "0x0",
+            "size": 32
+        },
+        "insts": {
+            "name": "avepool_insts.bin",
+            "size": 300
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 50176
+        },
+        "ofmap": {
+            "addr": "0xfbf0",
+            "size": 1024
+        }
+    }
+}

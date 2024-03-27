@@ -1,0 +1,18 @@
+{
+	"layer1":{
+		"comments":"activation",
+		"enable": true,
+		"func":"tanh",
+        "act_mode":4,
+		"in_dim_x": 56,
+		"in_dim_y": 56,
+		"in_ch": 2,
+		"base":{
+			"ifmap":2,
+			"coeff":1,
+			"ofmap":2
+		},
+		"coeff": "tanh_table.bin",
+		"insts": "tanh_insts.bin"
+	}
+}

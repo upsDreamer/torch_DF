@@ -1,0 +1,17 @@
+{
+	"layer1":{
+		"comments":"channel shuffle",
+		"enable": true,
+		"func": "ch_shuff",
+		"in_ch": 24,
+		"in_dim_x": 14,
+		"in_dim_y": 14,
+		"batch": 2,
+		"group": 3,
+		"base":{
+			"ifmap":1,
+			"ofmap":1
+		},
+		"insts": "ch_shuff_insts.bin"
+	}
+}

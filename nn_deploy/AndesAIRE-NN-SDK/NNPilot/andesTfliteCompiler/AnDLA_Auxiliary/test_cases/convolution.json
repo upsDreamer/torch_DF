@@ -1,0 +1,73 @@
+{
+	"conv":{
+		"comments":"Do convoultion operation",
+		"func":"convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 56,
+			"stop": 224,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start":56,
+			"stop": 224,
+			"step": 3,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 3,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 16,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		},
+		"ker_x":{
+			"start": 3,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		},
+		"ker_y":{
+			"start": 3,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_x":{
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_y":{
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_x":{
+			"start": 1,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y":{
+			"start": 1,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"act_mode": {
+			"start": 0,
+			"stop": 0,
+			"step": 1,
+			"mode": "add"
+		}
+	}
+}

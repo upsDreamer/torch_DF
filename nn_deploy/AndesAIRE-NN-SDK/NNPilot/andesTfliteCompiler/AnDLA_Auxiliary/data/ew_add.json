@@ -1,0 +1,18 @@
+{
+	"ew_add":{
+		"comments":"Do elementwise add operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 0,
+		"base":{
+			"ifmap":1,
+			"coeff":2,
+			"ofmap":1
+		},
+		"in_dim_x": 14,
+		"in_dim_y": 14,
+		"in_ch": 1024,
+		"coeff": "ew_add_coeff.bin",
+		"insts": "ew_add_insts.bin"
+	}
+}

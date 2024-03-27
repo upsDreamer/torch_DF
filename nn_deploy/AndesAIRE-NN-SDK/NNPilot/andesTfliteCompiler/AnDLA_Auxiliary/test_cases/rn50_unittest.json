@@ -1,0 +1,181 @@
+{
+	"pointwise_conv":{
+		"comments":"Do pointwise convoultion operation",
+		"func":"pointwise_convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 64,
+			"stop": 2048,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 64,
+			"stop": 2048,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+	
+	"fully_connect":{
+		"comments":"Do fully connect operation",
+		"func":"fully_connect",
+		"enable": true,
+		"in_ch":{
+			"start": 2048,
+			"stop": 2048,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 1000,
+			"stop": 1000,
+			"step": 2,
+			"mode": "add"
+		}
+	},
+	
+	"conv":{
+		"comments":"Do convoultion operation",
+		"func":"convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 64,
+			"stop": 512,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 64,
+			"stop": 512,
+			"step": 2,
+			"mode": "mul"
+		},
+		"ker_x":{
+			"start": 3,
+			"stop": 3,
+			"step": 3,
+			"mode": "add"
+		},
+		"ker_y":{
+			"start": 3,
+			"stop": 3,
+			"step": 3,
+			"mode": "add"
+		},
+		"pad_x":{
+			"start": 0,
+			"stop": 1,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_y":{
+			"start": 0,
+			"stop": 1,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_x":{
+			"start": 1,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y":{
+			"start": 1,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		}
+	}, 
+
+	"conv1":{
+		"comments":"Do convoultion operation",
+		"func":"convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 224,
+			"stop": 224,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 224,
+			"stop": 224,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 8,
+			"stop": 8,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 64,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		},
+		"ker_x":{
+			"start": 7,
+			"stop": 7,
+			"step": 7,
+			"mode": "add"
+		},
+		"ker_y":{
+			"start": 7,
+			"stop": 7,
+			"step": 7,
+			"mode": "add"
+		},
+		"pad_x":{
+			"start": 3,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_y":{
+			"start": 3,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_x":{
+			"start": 2,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y":{
+			"start": 2,
+			"stop": 2,
+			"step": 1,
+			"mode": "add"
+		}
+	}
+}

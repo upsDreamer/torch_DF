@@ -1,0 +1,18 @@
+{
+	"ew_sub":{
+		"comments":"Do elementwise sub operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 1,
+		"base":{
+			"ifmap":4,
+			"coeff":5,
+			"ofmap":4
+		},
+		"in_dim_x": 7,
+		"in_dim_y": 7,
+		"in_ch": 16,
+		"coeff": "ew_sub_coeff.bin",
+		"insts": "ew_sub_insts.bin"
+	}
+}

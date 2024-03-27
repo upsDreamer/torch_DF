@@ -1,0 +1,22 @@
+{
+    "layer5": {
+        "comments": "padding",
+        "func": "padding",
+        "base": {
+            "ifmap": 1,
+            "ofmap": 1
+        },
+        "insts": {
+            "name": "pad_insts.bin",
+            "size": 192
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 802816
+        },
+        "ofmap": {
+            "addr": "0x1387b0",
+            "size": 817216
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+	"fully_connect":{
+		"comments":"Do fully connect operation",
+		"func":"fully_connect",
+		"enable": true,
+		"in_ch":{
+			"start": 4,
+			"stop": 12544,
+			"step": 12,
+			"mode": "add"
+		},
+		"out_ch":{
+			"start": 4,
+			"stop": 1000,
+			"step": 2,
+			"mode": "mul"
+		}
+	}
+}

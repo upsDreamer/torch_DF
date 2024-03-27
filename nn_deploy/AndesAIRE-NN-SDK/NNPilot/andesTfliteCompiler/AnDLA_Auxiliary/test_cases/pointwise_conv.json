@@ -1,0 +1,31 @@
+{
+	"pointwise_conv":{
+		"comments":"Do pointwise convoultion operation",
+		"func":"pointwise_convolution",
+		"enable": true,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_dim_y": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch":{
+			"start": 8,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		},
+		"out_ch":{
+			"start": 8,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+		}
+	}
+}

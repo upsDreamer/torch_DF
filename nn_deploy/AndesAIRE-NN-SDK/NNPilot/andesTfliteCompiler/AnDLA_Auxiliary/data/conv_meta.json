@@ -1,0 +1,35 @@
+{
+    "layer1": {
+        "comments": "convolution",
+        "func": "conv",
+        "base": {
+            "ifmap": 5,
+            "weight": 6,
+            "bias": 6,
+            "scale": 6,
+            "ofmap": 5
+        },
+        "weight": {
+            "name": "conv_weight.bin",
+            "addr": "0x0",
+            "size": 3200
+        },
+        "bias": {
+            "name": "conv_bias.bin",
+            "addr": "0xc80",
+            "size": 80
+        },
+        "insts": {
+            "name": "conv_insts.bin",
+            "size": 320
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 25088
+        },
+        "ofmap": {
+            "addr": "0xfd260",
+            "size": 11664
+        }
+    }
+}

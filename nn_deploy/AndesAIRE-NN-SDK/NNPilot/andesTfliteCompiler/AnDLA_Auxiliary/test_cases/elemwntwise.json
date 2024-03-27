@@ -1,0 +1,297 @@
+{
+	"ew_add":{
+		"comments":"Do elementwise add operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 0,
+		"coeff":{
+			"im0":{
+				"offset": 22,
+				"mult": 1073741824,
+				"shift": -6
+			},
+			"im1":{
+				"offset": 19,
+				"mult": 1635441573,
+				"shift": -7
+			},
+			"out":{
+				"offset": -33,
+				"mult": 1791414195,
+				"shift": -14
+			},
+			"left_shift": 21,
+			"act_min": 0,
+			"act_max": 127,
+			"const": 0
+		},
+		"in_dim_x": {
+			"start": 14,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 14,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 64,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+
+	"ew_add_const":{
+		"comments":"Do elementwise add operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 1,
+		"coeff":{
+			"im0":{
+				"offset": 22,
+				"mult": 1073741824,
+				"shift": -6
+			},
+			"im1":{
+				"offset": 19,
+				"mult": 1635441573,
+				"shift": -7
+			},
+			"out":{
+				"offset": -33,
+				"mult": 1791414195,
+				"shift": -14
+			},
+			"left_shift": 21,
+			"act_min": -128,
+			"act_max": 127,
+			"const": -1
+		},
+		"in_dim_x": {
+			"start": 28,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 28,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 64,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+
+	"ew_sub":{
+		"comments":"Do elementwise sub operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 2,
+		"coeff":{
+			"im0":{
+				"offset": 26,
+				"mult": 1765697921,
+				"shift": -8
+			},
+			"im1":{
+				"offset": -9,
+				"mult": 1073741824,
+				"shift": -6
+			},
+			"out":{
+				"offset": -128,
+				"mult": 1102203939,
+				"shift": -12
+			},
+			"left_shift": 21,
+			"act_min": 0,
+			"act_max": 127,
+			"const": 0
+		},
+		"in_dim_x": 56,
+		"in_dim_y": 56,
+		"in_ch": {
+			"start": 64,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+
+	"ew_const_sub":{
+		"comments":"Do elementwise const sub operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 3,
+		"coeff":{
+			"im0":{
+				"mult": 2,
+				"offset": 0,
+				"shift": -30
+			},
+			"im1":{
+				"mult": 2,
+				"offset": 0,
+				"shift": -30
+			},
+			"out":{
+				"mult": 2,
+				"offset": 0,
+				"shift": -30
+			},
+			"left_shift": 0,
+			"act_min": -128,
+			"act_max": 127,
+			"const": 1
+		},
+		"in_dim_x": {
+			"start": 64,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": 5,
+		"in_ch": 32
+	},
+
+	"ew_sub_const":{
+		"comments":"Do elementwise sub const operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 4,
+		"coeff":{
+			"im0":{
+				"offset": 4,
+				"mult": 255,
+				"shift": -21
+			},
+			"im1":{
+				"offset": 0,
+				"mult": 2,
+				"shift": -30
+			},
+			"out":{
+				"offset": 0,
+				"mult": 2,
+				"shift": -30
+			},
+			"left_shift": 2,
+			"act_min": -128,
+			"act_max": 127,
+			"const": -2
+		},
+		"in_dim_x": 56,
+		"in_dim_y":  {
+			"start": 7,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 64,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+	"ew_mul":{
+		"comments":"Do elementwise mul operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 5,
+		"coeff":{
+			"im0":{
+				"offset": 13,
+				"mult": 0,
+				"shift": 0
+			},
+			"im1":{
+				"offset": 13,
+				"mult": 0,
+				"shift": 0
+			},
+			"out":{
+				"offset": -128,
+				"mult": 1787822080,
+				"shift": 6
+			},
+			"left_shift": 0,
+			"act_min": -80,
+			"act_max": 80,
+			"const": 0
+		},
+		"in_dim_x": {
+			"start": 14,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 14,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 64,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		}
+	},
+
+	"ew_mul_const":{
+		"comments":"Do elementwise mul const operation",
+		"func":"elementwise",
+		"enable": true,
+		"mode": 6,
+		"coeff":{
+			"im0":{
+				"offset": 13,
+				"mult": 0,
+				"shift": 0
+			},
+			"im1":{
+				"offset": 13,
+				"mult": 0,
+				"shift": 0
+			},
+			"out":{
+				"offset": -13,
+				"mult": 1077936128,
+				"shift": 7
+			},
+			"left_shift": 0,
+			"act_min": -128,
+			"act_max": 127,
+			"const": -2
+		},
+		"in_dim_x": {
+			"start": 28,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_dim_y": {
+			"start": 28,
+			"stop": 128,
+			"step": 2,
+			"mode": "mul"
+		},
+		"in_ch": {
+			"start": 64,
+			"stop": 256,
+			"step": 2,
+			"mode": "mul"
+		}
+	}
+}

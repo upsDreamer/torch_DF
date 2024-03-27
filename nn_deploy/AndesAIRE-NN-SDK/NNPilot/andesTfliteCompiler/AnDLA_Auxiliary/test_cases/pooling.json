@@ -1,0 +1,125 @@
+{
+	"ave_pooling":{
+		"comments":"Do ave pooling operation",
+		"enable": true,
+		"func":"pooling",
+		"mode": 2,
+		"in_dim_x": {
+			"start": 7,
+			"stop": 56,
+			"step": 2,
+			"mode": "mul"
+			}, 
+		"in_dim_y": {
+			"start":7,
+			"stop": 56,
+			"step": 3,
+			"mode": "mul"
+			},
+		"in_ch": {
+			"start": 2,
+			"stop": 64,
+			"step": 3,
+			"mode": "mul"
+		},
+		"ker_x": {
+			"start": 2,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		},
+		"ker_y": {
+			"start": 2,
+			"stop": 5,
+			"step": 1,
+			"mode": "add"
+		}, 
+		"pad_x": 0,
+		"pad_y": 0, 
+		"stride_x": {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y": {
+			"start": 1,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"act_mode":{
+            "start": 0,
+            "stop": 3,
+            "step": 1,
+            "mode": "add"
+        }
+	},
+
+	"max_pooling":{
+		"comments":"Do max pooling operation",
+		"enable": true,
+		"func":"pooling",
+		"mode": 1,
+		"in_dim_x": {
+			"start": 32,
+			"stop": 96,
+			"step": 3,
+			"mode": "mul"
+			}, 
+		"in_dim_y": {
+			"start":16,
+			"stop": 64,
+			"step": 2,
+			"mode": "mul"
+			},
+		"in_ch": {
+			"start": 4,
+			"stop": 64,
+			"step": 3,
+			"mode": "mul"
+		},
+		"ker_x": {
+			"start": 2,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		},
+		"ker_y": {
+			"start": 2,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		}, 
+		"pad_x": {
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		},
+		"pad_y": {
+			"start": 0,
+			"stop": 3,
+			"step": 1,
+			"mode": "add"
+		}, 
+		"stride_x": {
+			"start": 2,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		},
+		"stride_y": {
+			"start": 2,
+			"stop": 7,
+			"step": 1,
+			"mode": "add"
+		},
+		"act_mode":{
+            "start": 1,
+            "stop": 3,
+            "step": 1,
+            "mode": "add"
+        }
+	}
+}

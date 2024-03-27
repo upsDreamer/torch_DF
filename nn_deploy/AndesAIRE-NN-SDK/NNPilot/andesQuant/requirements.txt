@@ -1,0 +1,10 @@
+PyYAML==5.3.1
+torch==1.9.1+cu111
+numpy==1.19.2
+torchvision==0.10.1+cu111
+#pytorchcv==0.0.64
+scipy==1.4.1
+numba==0.49.0
+matplotlib==3.2.1
+pydot==1.4.1
+graphviz==0.10.1

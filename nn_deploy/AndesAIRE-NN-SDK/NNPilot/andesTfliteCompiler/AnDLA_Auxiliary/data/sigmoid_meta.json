@@ -1,0 +1,28 @@
+{
+    "layer1": {
+        "comments": "activation",
+        "func": "sigmoid",
+        "base": {
+            "ifmap": 2,
+            "coeff": 1,
+            "ofmap": 2
+        },
+        "coeff": {
+            "name": "sigmoid_table.bin",
+            "addr": "0x0",
+            "size": 256
+        },
+        "insts": {
+            "name": "sigmoid_insts.bin",
+            "size": 272
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 6272
+        },
+        "ofmap": {
+            "addr": "0xfe770",
+            "size": 6272
+        }
+    }
+}

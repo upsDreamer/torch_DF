@@ -1,0 +1,17 @@
+{
+	"layer1":{
+		"comments":"upsample",
+		"enable": true,
+		"func":"upsample",
+		"in_dim_x": 14,
+		"in_dim_y": 14,
+		"in_ch": 16,
+		"scale_x": 2,
+		"scale_y": 2,
+		"base":{
+			"ifmap":2,
+			"ofmap":2
+		},
+		"insts": "ups_insts.bin"
+	}
+}

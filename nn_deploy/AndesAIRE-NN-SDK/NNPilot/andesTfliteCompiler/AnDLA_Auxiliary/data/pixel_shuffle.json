@@ -1,0 +1,17 @@
+{
+	"layer1":{
+		"comments":"pixel shuffle",
+		"enable": true,
+		"func": "px_shuff",
+		"in_ch": 18,
+		"in_dim_x": 14,
+		"in_dim_y": 14,
+		"batch": 2,
+		"up_factor": 3,
+		"base":{
+			"ifmap":1,
+			"ofmap":1
+		},
+		"insts": "px_shuff_insts.bin"
+	}
+}

@@ -1,0 +1,28 @@
+{
+    "pooling": {
+        "comments": "Do max pooling operation",
+        "func": "maxpool",
+        "base": {
+            "ifmap": 2,
+            "coeff": 1,
+            "ofmap": 2
+        },
+        "coeff": {
+            "name": "maxpool_coeff.bin",
+            "addr": "0x0",
+            "size": 32
+        },
+        "insts": {
+            "name": "maxpool_insts.bin",
+            "size": 360
+        },
+        "ifmap0": {
+            "addr": "0x0",
+            "size": 802816
+        },
+        "ofmap": {
+            "addr": "0xceff0",
+            "size": 200704
+        }
+    }
+}
