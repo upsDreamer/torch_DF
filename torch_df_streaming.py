@@ -67,11 +67,12 @@ class ExportableStreamingTorchDF(nn.Module):
         self.enc.erb_conv0 = self.remove_conv_block_padding(self.enc.erb_conv0)
         self.enc.df_conv0 = self.remove_conv_block_padding(self.enc.df_conv0)
 
+        self.erb_dec = erb_dec
+
         # Instead of padding we put tensor with buffers into df_decoder
         self.df_dec = df_dec
         self.df_dec.df_convp = self.remove_conv_block_padding(self.df_dec.df_convp)
 
-        self.erb_dec = erb_dec
         self.alpha = alpha
 
         # RFFT
@@ -454,7 +455,6 @@ class ExportableStreamingTorchDF(nn.Module):
         """
         assert input_frame.ndim == 1, 'only bs=1 and t=frame_size supported'
         assert input_frame.shape[0] == self.frame_size, 'input_frame must be bs=1 and t=frame_size'
-        # import pdb; pdb.set_trace()
         (
             erb_norm_state, band_unit_norm_state,
             analysis_mem, synthesis_mem,
@@ -488,7 +488,6 @@ class ExportableStreamingTorchDF(nn.Module):
 
         #  (1, 2, T, self.nb_df)
         new_rolling_feat_spec_buf = torch.cat([rolling_feat_spec_buf[:, :, 1:, :], spec_feat], dim=2)
-
         e0, e1, e2, e3, emb, c0, lsnr, new_enc_hidden = self.enc(
             new_rolling_erb_buf, 
             new_rolling_feat_spec_buf, 
@@ -556,7 +555,6 @@ class ExportableStreamingTorchDF(nn.Module):
         # RMS conditioning for better ONNX graph
         enhanced_audio_frame = torch.where(rms_non_silence_condition, enhanced_audio_frame, torch.zeros_like(enhanced_audio_frame))
         new_states = torch.where(rms_non_silence_condition, new_states, states)
-
         return enhanced_audio_frame, new_states, lsnr
 
 class TorchDFPipeline(nn.Module):
@@ -569,17 +567,25 @@ class TorchDFPipeline(nn.Module):
         self.hop_size = hop_size
         self.fft_size = fft_size
 
-        
         model, state, _ = init_df(config_allow_defaults=True, model_base_dir=model_base_dir)
         model.eval()
         self.sample_rate = state.sr()
-
+        # print(model)
         self.torch_streaming_model = ExportableStreamingTorchDF(
             nb_bands=nb_bands, hop_size=hop_size, fft_size=fft_size, 
             enc=model.enc, df_dec=model.df_dec, erb_dec=model.erb_dec, df_order=df_order,
             always_apply_all_stages=always_apply_all_stages,
             conv_lookahead=conv_lookahead, nb_df=nb_df, sr=self.sample_rate
         )
+
+        # print(self.torch_streaming_model)
+
+        model_fx = torch.fx.symbolic_trace(model)
+
+        print(model_fx)
+        exit(0)
+
+
         self.torch_streaming_model = self.torch_streaming_model.to(device)
         self.states = torch.zeros(self.torch_streaming_model.states_full_len, device=device)
         self.atten_lim_db = torch.tensor(atten_lim_db, device=device)
@@ -654,7 +660,6 @@ def main(args):
     torch_df = TorchDFPipeline(device=args.device, always_apply_all_stages=args.always_apply_all_stages, model_base_dir=args.model_base_dir)
     memory_info = process.memory_info()
     print(format_memory_size(memory_info.rss))
-    # import pdb; pdb.set_trace()
     # torchaudio normalize=True, fp32 return
     noisy_audio, sr = torchaudio.load(args.audio_path, channels_first=True)
     noisy_audio = noisy_audio.mean(dim=0).unsqueeze(0).to(args.device) # stereo to mono
