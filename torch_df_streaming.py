@@ -12,7 +12,19 @@ from torch import nn
 from torch import Tensor
 from typing import Tuple
 
+
+import sys
+sys.path.append("/Work/audio_algo/zy/Pro/Pro1/DeepFilterNet/DeepFilterNet")
 from df import init_df
+
+@torch.fx.wrap
+def tensor_nonzero(s):
+    return torch.tensor(torch.nonzero(s).shape[0] == 0)
+
+@torch.fx.wrap
+def assigin_gain_spec(gain_spec, nb_df, mult):
+    gain_spec[:nb_df] = torch.sum(mult, dim=0)
+
 
 
 class ExportableStreamingTorchDF(nn.Module):
@@ -386,7 +398,8 @@ class ExportableStreamingTorchDF(nn.Module):
         """
         stacked_input_specs = rolling_spec_buf_x[:, :self.nb_df]
         mult = self.mul_complex(stacked_input_specs, coefs)
-        gain_spec[:self.nb_df] = torch.sum(mult, dim=0)
+        # gain_spec[:self.nb_df] = torch.sum(mult, dim=0)
+        assigin_gain_spec(gain_spec, self.nb_df, mult)
         return gain_spec
     
     def unpack_states(self, states: Tensor) -> Tuple[Tensor, Tensor, Tensor, Tensor, Tensor, Tensor, Tensor, Tensor, Tensor, Tensor, Tensor, Tensor]:
@@ -405,21 +418,31 @@ class ExportableStreamingTorchDF(nn.Module):
         erb_dec_hidden = splitted_states[10].view(self.erb_dec_hidden_shape)
         df_dec_hidden = splitted_states[11].view(self.df_dec_hidden_shape)
 
+        # 为了使 fx 通过，需要确定 device 的类型，推理默认使用 cpu 进行
+        # new_erb_norm_state = torch.linspace(
+        #     self.linspace_erb[0], self.linspace_erb[1], self.nb_bands, device=erb_norm_state.device
+        # ).view(self.erb_norm_state_shape).to(torch.float32) # float() to fix export issue
+        # new_band_unit_norm_state = torch.linspace(
+        #     self.linspace_df[0], self.linspace_df[1], self.nb_df, device=band_unit_norm_state.device
+        # ).view(self.band_unit_norm_state_shape).to(torch.float32) # float() to fix export issue
+
         new_erb_norm_state = torch.linspace(
-            self.linspace_erb[0], self.linspace_erb[1], self.nb_bands, device=erb_norm_state.device
+            self.linspace_erb[0], self.linspace_erb[1], self.nb_bands, device="cpu"
         ).view(self.erb_norm_state_shape).to(torch.float32) # float() to fix export issue
         new_band_unit_norm_state = torch.linspace(
-            self.linspace_df[0], self.linspace_df[1], self.nb_df, device=band_unit_norm_state.device
+            self.linspace_df[0], self.linspace_df[1], self.nb_df, device="cpu"
         ).view(self.band_unit_norm_state_shape).to(torch.float32) # float() to fix export issue
 
         erb_norm_state = torch.where(
-            torch.tensor(torch.nonzero(erb_norm_state).shape[0] == 0),
+            # torch.tensor(torch.nonzero(erb_norm_state).shape[0] == 0),
+            tensor_nonzero(erb_norm_state),
             new_erb_norm_state,
             erb_norm_state
         )
     
         band_unit_norm_state = torch.where(
-            torch.tensor(torch.nonzero(band_unit_norm_state).shape[0] == 0),
+            # torch.tensor(torch.nonzero(band_unit_norm_state).shape[0] == 0),
+            tensor_nonzero(band_unit_norm_state),
             new_band_unit_norm_state,
             band_unit_norm_state
         )
@@ -453,8 +476,8 @@ class ExportableStreamingTorchDF(nn.Module):
             lsnr:               Float[1] - Estimated lsnr of input frame
 
         """
-        assert input_frame.ndim == 1, 'only bs=1 and t=frame_size supported'
-        assert input_frame.shape[0] == self.frame_size, 'input_frame must be bs=1 and t=frame_size'
+        # assert input_frame.ndim == 1, 'only bs=1 and t=frame_size supported'
+        # assert input_frame.shape[0] == self.frame_size, 'input_frame must be bs=1 and t=frame_size'
         (
             erb_norm_state, band_unit_norm_state,
             analysis_mem, synthesis_mem,
@@ -536,10 +559,12 @@ class ExportableStreamingTorchDF(nn.Module):
 
         # Mixing some noisy channel
         # taken from https://github.com/Rikorose/DeepFilterNet/blob/59789e135cb5ed0eb86bb50e8f1be09f60859d5c/DeepFilterNet/df/enhance.py#L237
-        if torch.abs(atten_lim_db) > 0:
-            spec_noisy = rolling_spec_buf_x[max(self.lookahead, self.df_order) - self.lookahead - 1]
-            lim = 10 ** (-torch.abs(atten_lim_db) / self.normalize_atten_lim)
-            current_spec = torch.lerp(current_spec, spec_noisy, lim)
+
+        # change by zhouyu 默认 0 db 降噪，为了使 fx 通过        
+        # if torch.abs(atten_lim_db) > 0:
+        #     spec_noisy = rolling_spec_buf_x[max(self.lookahead, self.df_order) - self.lookahead - 1]
+        #     lim = 10 ** (-torch.abs(atten_lim_db) / self.normalize_atten_lim)
+        #     current_spec = torch.lerp(current_spec, spec_noisy, lim)
 
         enhanced_audio_frame, new_synthesis_mem = self.frame_synthesis(current_spec, synthesis_mem)
 
@@ -580,10 +605,10 @@ class TorchDFPipeline(nn.Module):
 
         # print(self.torch_streaming_model)
 
-        model_fx = torch.fx.symbolic_trace(model)
+        # model_fx = torch.fx.symbolic_trace(model)
 
-        print(model_fx)
-        exit(0)
+        # print(model_fx)
+        # exit(0)
 
 
         self.torch_streaming_model = self.torch_streaming_model.to(device)

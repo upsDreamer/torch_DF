@@ -499,6 +499,7 @@ def operator2bimethod(model: torch.nn.Module) -> torch.nn.Module:
             for key in node.kwargs.keys():
                 if isinstance(node.kwargs[key],fx.Node):
                     value=get_value_from_module(fx_model,node.kwargs[key].target)
+                    # print(value)
                     new_args=new_args+(int(value),)
                     #new_node = fx_model.graph.call_function(torch.squeeze, args=(node.args[0],int(value)))
                 else:
@@ -513,7 +514,7 @@ def operator2bimethod(model: torch.nn.Module) -> torch.nn.Module:
         """
         if node.target == 'sum' and node.op == 'call_method':
             node.op='call_function'
-            node.target=torch.unsqueeze
+            node.target=torch.sum
         if "<built-in method sum" in str(node.target) and node.op == 'call_function':
             new_args=()
             new_args=new_args+node.args
@@ -525,7 +526,7 @@ def operator2bimethod(model: torch.nn.Module) -> torch.nn.Module:
                 else:
                     new_args=new_args+(node.kwargs[key],)
                     #new_node = fx_model.graph.call_function(torch.squeeze, args=(node.args[0],node.kwargs['dim']))
-            new_node = fx_model.graph.call_function(torch.unsqueeze, args=new_args)
+            new_node = fx_model.graph.call_function(torch.sum, args=new_args)
             node.args=new_node.args
             node.kwargs=new_node.kwargs
             fx_model.graph.erase_node(new_node)
@@ -698,6 +699,7 @@ def andes_preprocessing(model: torch.nn.Module):
                             )'''
             #set_layer(model, name, a)
     #model=method2bimethod(model)
+    
     model=operator2bimethod(model)
     model=input_replace(model)
     model=function_replace(model)
