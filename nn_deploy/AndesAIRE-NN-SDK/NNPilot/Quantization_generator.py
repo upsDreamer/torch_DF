@@ -70,7 +70,7 @@ if __name__ == "__main__":
     """
     load fp32 model from workspace or exist pickle
     """
-    module_ws=importlib.import_module(ws_path+'.model_fp32')
+    module_ws=importlib.import_module(ws_path+'.dfn_model_fp32')
     if args.model_pkg == "none":
         #load from defined {$(MODEL_WS_PAKAGE)}
         model_fp32 = module_ws.return_fp32_model()
@@ -82,7 +82,7 @@ if __name__ == "__main__":
         model_fq, DAG_object,quant_config = quant_func.quantize_model_loader("example/resnet8_onnx/rn8_symm/")
         print("env prepare success")
         exit()
-
+    exit()
 
     """
     load dataloader or dataset and dataset_configration from {$(MODEL_WS_PAKAGE)}/dataset.py

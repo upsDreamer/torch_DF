@@ -28,11 +28,11 @@ def return_fp32_model():
         streaming_pipeline = TorchDFPipeline(always_apply_all_stages=True, device='cpu', model_base_dir = torchDF_path + "/test_dir/base_dir_1_1M_d3/")
         torch_df = streaming_pipeline.torch_streaming_model
         states = streaming_pipeline.states
-        atten_lim_db = streaming_pipeline.atten_lim_db
+        atten_lim_db = streaming_pipeline.atten_lim_db        
         torch_df = andes_preprocessing(torch_df)
         torch_df = add_idd(torch_df)
-    torch_df.eval()
     print(torch_df)
+    torch_df.eval()
     return torch_df
 
 if __name__ == "__main__":

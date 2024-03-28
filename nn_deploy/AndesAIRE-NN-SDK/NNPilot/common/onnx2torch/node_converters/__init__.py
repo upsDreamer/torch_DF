@@ -7,6 +7,7 @@ from onnx2torch.node_converters.clip import *
 from onnx2torch.node_converters.comparisons import *
 from onnx2torch.node_converters.concat import *
 from onnx2torch.node_converters.constant import *
+# 这个模块加载不通过，为了使整体运行通过将其注释，看上去也模型也并没有用到这个模块
 # from onnx2torch.node_converters.randomnormal import *
 from onnx2torch.node_converters.constant_of_shape import *
 from onnx2torch.node_converters.conv import *
