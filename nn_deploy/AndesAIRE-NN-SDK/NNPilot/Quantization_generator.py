@@ -135,7 +135,7 @@ if __name__ == "__main__":
     print("Ready to search the Best Fake_Quant Model...")
     generated_from_pkg=True
     print("ssssssssssssssssssssssssssssssssssssssssssssssss")
-    import pdb; pdb.set_trace()
+    
     quant_config = None
     if not args.qat:
         if os.path.exists(args.model_pkg+"/quantize_config.yaml"):
