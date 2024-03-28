@@ -82,7 +82,6 @@ if __name__ == "__main__":
         model_fq, DAG_object,quant_config = quant_func.quantize_model_loader("example/resnet8_onnx/rn8_symm/")
         print("env prepare success")
         exit()
-    exit()
 
     """
     load dataloader or dataset and dataset_configration from {$(MODEL_WS_PAKAGE)}/dataset.py
@@ -99,13 +98,14 @@ if __name__ == "__main__":
         print("create dummy input")
         for data_shape in data_config['dummy_input']:
             data=torch.zeros(data_shape)
+            print(data.size())
             test_data.append(data)
         test_data = tuple(test_data)
 
     """
     load evaluation function from {$(MODEL_WS_PAKAGE)}/evaluation.py
     """
-    eval_ws=importlib.import_module(ws_path+'.evaluation')
+    # eval_ws=importlib.import_module(ws_path+'.evaluation')
     print()
     #eval_ws.inference_FP32(model_fp32,val_dataloader,device)
     #eval_ws.inference_FQ(model_fp32,val_dataloader,data_config,device)
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     print("Ready to search the Best Fake_Quant Model...")
     generated_from_pkg=True
     print("ssssssssssssssssssssssssssssssssssssssssssssssss")
-
+    import pdb; pdb.set_trace()
     quant_config = None
     if not args.qat:
         if os.path.exists(args.model_pkg+"/quantize_config.yaml"):

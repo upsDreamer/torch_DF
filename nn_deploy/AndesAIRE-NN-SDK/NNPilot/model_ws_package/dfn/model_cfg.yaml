@@ -2,7 +2,7 @@ train_clean_wave_path: "/not_provide"
 train_noisy_wave_path: "/not_provide"
 clean_wave_path: "/Work/audio_algo/zy/Corpus/RNN_NOISE_DATA/clean_testset_wav"
 noisy_wave_path: "/Work/audio_algo/zy/Corpus/RNN_NOISE_DATA/noisy_testset_wav"
-dummy_input: [[1,1,42],[1,24],[1,48],[1,96]]
+dummy_input: [[480], [44344], [1]]
 batch_size: 1
 channel: 1
 height: 42
